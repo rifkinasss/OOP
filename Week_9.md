@@ -36,56 +36,52 @@ $mahasiswa1->tampilkanInfo(); // Output: Nama: Budi, NIM: 12345
 Contoh Lainnya :
 ```php
 // Class Induk
-class Kendaraan {
-    public $merk;
-    public $kecepatanMaks;
+class Hewan {
+    public $nama;
+    public $jenis;
     
-    public function __construct($merk, $kecepatanMaks) {
-        $this->merk = $merk;
-        $this->kecepatanMaks = $kecepatanMaks;
+    public function __construct($nama, $jenis) {
+        $this->nama = $nama;
+        $this->jenis = $jenis;
     }
     
-    public function infoKendaraan() {
-        echo "Merk: " . $this->merk . ", Kecepatan Maks: " . $this->kecepatanMaks . " km/jam";
+    public function makan() {
+        echo $this->nama . " sedang makan.";
     }
 }
 
 // Class Turunan
-class Mobil extends Kendaraan {
-    public $jumlahPintu;
-    
-    public function __construct($merk, $kecepatanMaks, $jumlahPintu) {
-        parent::__construct($merk, $kecepatanMaks);
-        $this->jumlahPintu = $jumlahPintu;
-    }
-    
-    public function parkir() {
-        echo "Mobil " . $this->merk . " sedang parkir.";
+class Kucing extends Hewan {
+    public function bersuara() {
+        echo $this->nama . " mengeong.";
     }
 }
 
-class SepedaMotor extends Kendaraan {
-    public $tipeHandle;
-    
-    public function __construct($merk, $kecepatanMaks, $tipeHandle) {
-        parent::__construct($merk, $kecepatanMaks);
-        $this->tipeHandle = $tipeHandle;
-    }
-    
-    public function staterMesin() {
-        echo "Sepeda motor " . $this->merk . " dinyalakan.";
+class Burung extends Hewan {
+    public function terbang() {
+        echo $this->nama . " sedang terbang.";
     }
 }
 
-// Membuat objek mobil
-$mobil1 = new Mobil("Toyota", 180, 4);
-$mobil1->infoKendaraan(); // Output: Merk: Toyota, Kecepatan Maks: 180 km/jam
-$mobil1->parkir(); // Output: Mobil Toyota sedang parkir.
+class Ikan extends Hewan {
+    public function berenang() {
+        echo $this->nama . " sedang berenang.";
+    }
+}
 
-// Membuat objek sepeda motor
-$motor1 = new SepedaMotor("Yamaha", 120, "Sport");
-$motor1->infoKendaraan(); // Output: Merk: Yamaha, Kecepatan Maks: 120 km/jam
-$motor1->staterMesin(); // Output: Sepeda motor Yamaha dinyalakan.
+// Membuat objek kucing
+$kucing1 = new Kucing("Tom", "Kucing Persia");
+$kucing1->makan(); // Output: Tom sedang makan.
+$kucing1->bersuara(); // Output: Tom mengeong.
+
+// Membuat objek burung
+$burung1 = new Burung("Rio", "Burung Beo");
+$burung1->terbang(); // Output: Rio sedang terbang.
+
+// Membuat objek ikan
+$ikan1 = new Ikan("Nemo", "Ikan Badut");
+$ikan1->berenang(); // Output: Nemo sedang berenang.
+
 ```
 ## Inheritance (Pewarisan)
 
